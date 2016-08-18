@@ -1,16 +1,10 @@
 def substrings (string, dictionary)
-  substrings_hash = Hash.new
+  substrings_hash = Hash.new(0)
   strings = string.downcase.split(/\W/)
   strings.each do |word|
     dictionary.each do |substring|
-      if word.include? substring
-        if substrings_hash.keys.include? substring
-          substrings_hash[substring] +=1
-        else
-          substrings_hash[substring] = 1
-        end
-      end
-  end
+      substrings_hash[substring] +=1 if word.include? substring
+    end
   end
   substrings_hash
 end
