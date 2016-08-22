@@ -42,5 +42,19 @@ describe 'Enumerable Methods Tests' do
       expect(@a.my_select).to eq(@a)
     end
   end
+
+  describe 'my_all?' do
+    it 'checks if all elements are integers' do
+      expect(@a.my_all? { |num| num.is_a? Integer }).to eq(true)
+    end
+
+    it 'checks if all elements are even' do
+      expect(@a.my_all? { |num| num % 2 == 0 }).to eq(false)
+    end
+
+    it 'checks if all elements are > 0' do
+      expect(@a.my_all? { |num| num > 0 }).to eq(true)
+    end
+  end
 end
 

@@ -21,4 +21,9 @@ module Enumerable
     end
     my_array
   end
+
+  def my_all?
+    (block_given?) ? my_each { |i| return false unless yield(i) } : my_each { |i| return false unless i }
+    true
+  end
 end
